@@ -25,7 +25,7 @@ namespace BestGuide.Modules.Areas.Hotel
         [ProducesResponseType(typeof(HotelResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetHotel([FromRoute] Guid id, CancellationToken cancellationToken)
         {
-            var query = new GetHotelsQuery() { Id = id };
+            var query = new GetHotelsByIdQuery() { Id = id };
 
             var result = await _mediator.Send(query, cancellationToken);
 
@@ -60,7 +60,7 @@ namespace BestGuide.Modules.Areas.Hotel
         public async Task<IActionResult> GetPagedHotels([FromQuery] SearchPagedHotelsRequest request, CancellationToken cancellationToken)
         {
             SetRequestPageHeaders(request);
-            var query = _mapper.Map<SearchPagedHotelsQuery>(request);
+            var query = _mapper.Map<PagedSearchHotelsQuery>(request);
 
             var result = await _mediator.Send(query, cancellationToken);
 

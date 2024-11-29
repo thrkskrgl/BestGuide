@@ -2,9 +2,9 @@
 
 namespace BestGuide.Modules.Application.Hotels.Queries
 {
-    public class SearchPagedHotelsQueryValidator : AbstractValidator<SearchPagedHotelsQuery>
+    public class PagedSearchHotelsQueryValidator : AbstractValidator<PagedSearchHotelsQuery>
     {
-        public SearchPagedHotelsQueryValidator()
+        public PagedSearchHotelsQueryValidator()
         {
             RuleFor(input => input.PageIndex).NotEmpty();
             RuleFor(input => input.PageSize).LessThanOrEqualTo(1000);

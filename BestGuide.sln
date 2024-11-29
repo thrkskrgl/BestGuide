@@ -19,25 +19,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{3D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{66F884A0-C344-44E9-9316-36F4A00DC7B7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Report", "BestGuide.Report\BestGuide.Report.csproj", "{B2785EBA-1EFF-4736-88B2-D0BB56F0E7FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Report", "src\BestGuide.Report\BestGuide.Report.csproj", "{B2785EBA-1EFF-4736-88B2-D0BB56F0E7FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Modules", "BestGuide.Modules\BestGuide.Modules.csproj", "{21A27F3B-1FDF-4281-BA18-0AE65555408C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Modules", "src\BestGuide.Modules\BestGuide.Modules.csproj", "{21A27F3B-1FDF-4281-BA18-0AE65555408C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Modules.Application", "BestGuide.Modules.Application\BestGuide.Modules.Application.csproj", "{1E6CF45A-C76D-4585-8E7D-C68ECDA3D92A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Modules.Application", "src\BestGuide.Modules.Application\BestGuide.Modules.Application.csproj", "{1E6CF45A-C76D-4585-8E7D-C68ECDA3D92A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Report.Application", "BestGuide.Report.Application\BestGuide.Report.Application.csproj", "{0121CF26-3004-4C2C-A429-8D155DAA37BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Report.Application", "src\BestGuide.Report.Application\BestGuide.Report.Application.csproj", "{0121CF26-3004-4C2C-A429-8D155DAA37BB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Report.Domain", "BestGuide.Report.Domain\BestGuide.Report.Domain.csproj", "{7FE3112D-95A9-4258-BC79-0FDA18E4293D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Report.Domain", "src\BestGuide.Report.Domain\BestGuide.Report.Domain.csproj", "{7FE3112D-95A9-4258-BC79-0FDA18E4293D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Report.Infrastructure", "BestGuide.Report.Infrastructure\BestGuide.Report.Infrastructure.csproj", "{FED8AE8C-9FC0-477C-ABE9-3432525CDA64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Report.Infrastructure", "src\BestGuide.Report.Infrastructure\BestGuide.Report.Infrastructure.csproj", "{FED8AE8C-9FC0-477C-ABE9-3432525CDA64}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Modules.Domain", "BestGuide.Modules.Domain\BestGuide.Modules.Domain.csproj", "{35128E5E-5B3A-497C-9AD2-FAF7447DBD8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Modules.Domain", "src\BestGuide.Modules.Domain\BestGuide.Modules.Domain.csproj", "{35128E5E-5B3A-497C-9AD2-FAF7447DBD8D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Modules.Infrastructure", "BestGuide.Modules.Infrastructure\BestGuide.Modules.Infrastructure.csproj", "{1020E92F-0E6F-4B8D-915A-3D17FAC4F42D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Modules.Infrastructure", "src\BestGuide.Modules.Infrastructure\BestGuide.Modules.Infrastructure.csproj", "{1020E92F-0E6F-4B8D-915A-3D17FAC4F42D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Common.Pagination", "BestGuide.Common.Pagination\BestGuide.Common.Pagination.csproj", "{EED874F3-672F-4C7B-A740-604CEE65938B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Common.Pagination", "src\BestGuide.Common.Pagination\BestGuide.Common.Pagination.csproj", "{EED874F3-672F-4C7B-A740-604CEE65938B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Common.EFCore", "BestGuide.Common.EFCore\BestGuide.Common.EFCore.csproj", "{5A54A0CD-15A7-4CB4-976F-FA7F6066D12A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Common.EFCore", "src\BestGuide.Common.EFCore\BestGuide.Common.EFCore.csproj", "{5A54A0CD-15A7-4CB4-976F-FA7F6066D12A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
