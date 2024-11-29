@@ -1,0 +1,6 @@
+{
+  "ConnectionStrings": {
+    "Key": "default",
+    "DBBestGuideConnection": "Host=localhost;Database=DB_BestGuide;User Id=postgres;Password=postgres;"
+  }
+}
