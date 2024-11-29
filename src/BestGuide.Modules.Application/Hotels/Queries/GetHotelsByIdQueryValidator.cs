@@ -2,9 +2,9 @@
 
 namespace BestGuide.Modules.Application.Hotels.Queries
 {
-    public class GetHotelsQueryValidator : AbstractValidator<GetHotelsQuery>
+    public class GetHotelsByIdQueryValidator : AbstractValidator<GetHotelsByIdQuery>
     {
-        public GetHotelsQueryValidator()
+        public GetHotelsByIdQueryValidator()
         {
             RuleFor(input => input.Id).NotNull();
         }

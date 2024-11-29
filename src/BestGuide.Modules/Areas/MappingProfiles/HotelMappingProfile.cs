@@ -12,7 +12,7 @@ namespace BestGuide.Modules.Areas.MappingProfiles
         public HotelMappingProfile()
         {
             CreateMap<SearchHotelsRequest, SearchHotelsQuery>();
-            CreateMap<SearchPagedHotelsRequest, SearchPagedHotelsQuery>();
+            CreateMap<SearchPagedHotelsRequest, PagedSearchHotelsQuery>();
             CreateMap<CreateHotelRequest, CreateHotelCommand>();
             CreateMap<ContactRequestOfHotel, ContactArgsOfHotel>();
             CreateMap<Domain.Models.Hotel, HotelResponse>();

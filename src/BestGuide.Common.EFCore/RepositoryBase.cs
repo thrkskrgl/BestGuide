@@ -16,13 +16,18 @@ namespace BestGuide.Common.EFCore
         }
 
         public async Task<T> GetAsync(
-                             Expression<Func<T, bool>> predicate,
+                             Expression<Func<T, bool>>? predicate,
                              List<Expression<Func<T, object>>>? includes = null,
                              CancellationToken cancellationToken = default)
         {
-            IQueryable<T> query = _dbSet.Where(predicate);
+            IQueryable<T> query = _dbSet.AsQueryable();
+            
+            if (predicate is not null)
+            {
+                query = query.Where(predicate);
+            }
 
-            if (includes != null)
+            if (includes is not null)
             {
                 foreach (var include in includes)
                 {
@@ -40,7 +45,7 @@ namespace BestGuide.Common.EFCore
         {
             IQueryable<T> query = _dbSet.Where(predicate);
 
-            if (includes != null)
+            if (includes is not null)
             {
                 foreach (var include in includes)
                 {
@@ -60,7 +65,7 @@ namespace BestGuide.Common.EFCore
         {
             IQueryable<T> query = _dbSet.Where(predicate);
 
-            if (includes != null)
+            if (includes is not null)
             {
                 foreach (var include in includes)
                 {
