@@ -1,3 +1,5 @@
+using BestGuide.Modules.Domain.Persistence;
+using BestGuide.Modules.Domain.Services;
 using BestGuide.Modules.Infrastructure.Persistence;
 using MediatR;
 using MediatR.Pipeline;
@@ -27,6 +29,10 @@ namespace BestGuide.Modules
             {
                 options.AllowNullCollections = true;
             }, Assembly.GetExecutingAssembly());
+
+            builder.Services.AddScoped<IHotelService, HotelService>();
+            builder.Services.AddScoped<IRepositoryFactory, RepositoryFactory>();
+            builder.Services.AddScoped<IHotelRepository, HotelRepository>();
 
             var app = builder.Build();
 
