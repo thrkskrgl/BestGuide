@@ -6,4 +6,53 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="database.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="database.json">
+      <TransformOnBuild>true</TransformOnBuild>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" />
+    <PackageReference Include="Microsoft.VisualStudio.SlowCheetah">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BestGuide.Common.EFCore\BestGuide.Common.EFCore.csproj" />
+    <ProjectReference Include="..\BestGuide.Report.Domain\BestGuide.Report.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="database.Debug.json">
+      <DependentUpon>database.json</DependentUpon>
+      <IsTransformFile>true</IsTransformFile>
+    </None>
+    <None Update="database.Internal.json">
+      <DependentUpon>database.json</DependentUpon>
+      <IsTransformFile>true</IsTransformFile>
+    </None>
+    <None Update="database.Release.json">
+      <DependentUpon>database.json</DependentUpon>
+      <IsTransformFile>true</IsTransformFile>
+    </None>
+  </ItemGroup>
+
 </Project>
