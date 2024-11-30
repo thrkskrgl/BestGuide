@@ -10,8 +10,6 @@ namespace BestGuide.Modules.Domain.Args.HotelArgs
         public string? Title { get; set; }
         public string? ContactContent { get; set; }
         public bool IncludeContacts { get; set; }
-
         public HotelContactType? ContactType { get; set; }
-        public Guid? ReportId { get; set; }
     }
 }

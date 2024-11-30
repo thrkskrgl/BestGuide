@@ -14,7 +14,15 @@ namespace BestGuide.Modules.Infrastructure.Persistence
         {
         }
 
-        private static (Expression<Func<Hotel, bool>>, List<Expression<Func<Hotel, object>>>?) BuildPredicate(SearchHotelArgs args)
+        private static Expression<Func<T, object>> ToPropertyExpression<T>(string propertyName)
+        {
+            var parameter = Expression.Parameter(typeof(T), "x");
+            var property = Expression.Property(parameter, propertyName);
+            var converted = Expression.Convert(property, typeof(object));
+            return Expression.Lambda<Func<T, object>>(converted, parameter);
+        }
+
+        private static (Expression<Func<Hotel, bool>>, List<Expression<Func<Hotel, object>>>?, Func<IQueryable<Hotel>, IOrderedQueryable<Hotel>>?) BuildPredicate(SearchHotelArgs args)
         {
             Expression<Func<Hotel, bool>> predicate = h =>
                 (string.IsNullOrEmpty(args.Title) || EF.Functions.ILike(h.Title, $"%{args.Title}%")) &&
@@ -29,7 +37,16 @@ namespace BestGuide.Modules.Infrastructure.Persistence
                 includes = [ h => h.Contacts ];
             }
 
-            return (predicate, includes);
+            Func<IQueryable<Hotel>, IOrderedQueryable<Hotel>>? orderBy = null;
+
+            if (!string.IsNullOrEmpty(args.OrderBy))
+            {
+                orderBy = args.Direction
+                    ? query => query.OrderBy(ToPropertyExpression<Hotel>(args.OrderBy))
+                    : query => query.OrderByDescending(ToPropertyExpression<Hotel>(args.OrderBy));
+            }
+
+            return (predicate, includes, orderBy);
         }
 
         public async Task<Hotel> GetAsync(GetHotelByIdArgs args, CancellationToken cancellationToken = default)
@@ -41,14 +58,14 @@ namespace BestGuide.Modules.Infrastructure.Persistence
 
         public async Task<IList<Hotel>> ListAsync(SearchHotelArgs args, CancellationToken cancellationToken = default)
         {
-            var (predicate, includes) = BuildPredicate(args);
-            return await ListAsync(predicate, includes, cancellationToken);
+            var (predicate, includes, orderBy) = BuildPredicate(args);
+            return await ListAsync(predicate, includes, orderBy, cancellationToken);
         }
 
         public async Task<IListPaged<Hotel>> ListPagedAsync(SearchHotelArgs args, CancellationToken cancellationToken = default)
         {
-            var (predicate, includes) = BuildPredicate(args);
-            return await ListPagedAsync(predicate, args.PageIndex, args.PageSize, includes, cancellationToken: cancellationToken);
+            var (predicate, includes, orderBy) = BuildPredicate(args);
+            return await ListPagedAsync(predicate, args.PageIndex, args.PageSize, includes, orderBy, cancellationToken);
         }
     }
 }

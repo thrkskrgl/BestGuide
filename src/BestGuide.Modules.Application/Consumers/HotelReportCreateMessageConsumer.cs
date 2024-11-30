@@ -1,5 +1,5 @@
 ﻿using BestGuide.Common.Messages;
-using BestGuide.Modules.Application.Hotels.Queries;
+using BestGuide.Modules.Application.Hotels.Commands;
 using MassTransit;
 using MediatR;
 
@@ -16,13 +16,13 @@ namespace BestGuide.Modules.Application.Consumers
 
         public async Task Consume(ConsumeContext<HotelReportCreateMessage> context)
         {
-            var query = new SearchHotelsQuery
+            var command = new PrepareHotelReportCommand
             {
                 ContactType = Domain.Enums.HotelContactType.Location,
                 ContactContent = context.Message.Location,
                 ReportId = context.Message.Id
             };
-            await _mediator.Send(query, context.CancellationToken);
+            await _mediator.Send(command, context.CancellationToken);
         }
     }
 }

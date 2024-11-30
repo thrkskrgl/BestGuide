@@ -11,5 +11,6 @@ namespace BestGuide.Modules.Domain.Services
         public Task<IListPaged<Hotel>> ListPagedAsync(SearchHotelArgs args, CancellationToken cancellationToken = default);
         public Task<Hotel> CreateAsync(CreateHotelArgs args, CancellationToken cancellationToken = default);
         public Task DeleteAsync(DeleteHotelArgs args, CancellationToken cancellationToken = default);
+        public Task PrepareReportAsync(PrepareHotelReportArgs args, CancellationToken cancellationToken = default);
     }
 }
