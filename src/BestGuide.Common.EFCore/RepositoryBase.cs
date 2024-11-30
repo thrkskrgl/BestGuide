@@ -31,7 +31,8 @@ namespace BestGuide.Common.EFCore
             {
                 foreach (var include in includes)
                 {
-                    query = query.Include(include);
+                    query = query.Include(include)
+                        .AsNoTracking();
                 }
             }
 
@@ -49,7 +50,8 @@ namespace BestGuide.Common.EFCore
             {
                 foreach (var include in includes)
                 {
-                    query = query.Include(include);
+                    query = query.Include(include)
+                        .AsNoTracking();
                 }
             }
 
@@ -69,7 +71,8 @@ namespace BestGuide.Common.EFCore
             {
                 foreach (var include in includes)
                 {
-                    query = query.Include(include);
+                    query = query.Include(include)
+                        .AsNoTracking();
                 }
             }
 
@@ -83,6 +86,13 @@ namespace BestGuide.Common.EFCore
         public async Task<T> AddAsync(T entity, CancellationToken cancellationToken = default)
         {
             await _dbSet.AddAsync(entity, cancellationToken);
+            await _context.SaveChangesAsync(cancellationToken);
+            return entity;
+        }
+
+        public async Task<T> UpdateAsync(T entity, CancellationToken cancellationToken = default)
+        {
+            _dbSet.Update(entity);
             await _context.SaveChangesAsync(cancellationToken);
             return entity;
         }

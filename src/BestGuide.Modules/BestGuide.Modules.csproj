@@ -31,16 +31,17 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" />
     <PackageReference Include="MediatR" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" >
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.SlowCheetah" >
+    <PackageReference Include="Microsoft.VisualStudio.SlowCheetah">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
     <PackageReference Include="Swashbuckle.AspNetCore" />
+    <PackageReference Include="MassTransit.RabbitMQ" />
   </ItemGroup>
 
   <ItemGroup>
