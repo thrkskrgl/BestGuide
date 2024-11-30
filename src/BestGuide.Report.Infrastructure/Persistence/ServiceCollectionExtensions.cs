@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BestGuide.Report.Domain.Persistence;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,7 +19,7 @@ namespace BestGuide.Report.Infrastructure.Persistence
             return configurationBuilder.Build();
         }
 
-        public static IServiceCollection AddDatabaseContext(this IServiceCollection services)
+        public static IServiceCollection RegisterDatabaseContext(this IServiceCollection services)
         {
             var configuration = GetDatabaseConfiguration();
             var connectionString = configuration.GetConnectionString("DBBestGuideConnection");
@@ -26,6 +27,13 @@ namespace BestGuide.Report.Infrastructure.Persistence
             services.AddDbContext<ReportDbContext>(options =>
                 options.UseNpgsql(connectionString, x => x.MigrationsHistoryTable(MigrationHistoryName, SchemaName)));
 
+            return services;
+        }
+
+        public static IServiceCollection RegisterReportRepositories(this IServiceCollection services)
+        {
+            services.AddScoped<IRepositoryFactory, RepositoryFactory>();
+            services.AddScoped<IHotelReportRepository, HotelReportRepository>();
             return services;
         }
     }

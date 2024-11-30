@@ -1,5 +1,4 @@
 using BestGuide.Report.Application.Consumers;
-using BestGuide.Report.Domain.Persistence;
 using BestGuide.Report.Domain.Services;
 using BestGuide.Report.Infrastructure.Persistence;
 using BestGuide.Report.Options;
@@ -17,7 +16,7 @@ namespace BestGuide.Report
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDatabaseContext();
+            builder.Services.RegisterDatabaseContext();
 
             builder.Services.AddControllers()
                 .AddJsonOptions(options =>
@@ -41,12 +40,8 @@ namespace BestGuide.Report
                 options.AllowNullCollections = true;
             }, Assembly.GetExecutingAssembly());
 
-
-            builder.Services.AddScoped<IRepositoryFactory, RepositoryFactory>();
-
-            builder.Services.AddScoped<IHotelReportService, HotelReportService>();
-
-            builder.Services.AddScoped<IHotelReportRepository, HotelReportRepository>();
+            builder.Services.RegisterReportRepositories();
+            builder.Services.RegisterReportServices();
 
             var rabbitMqOptions = builder.Configuration.GetSection(RabbitMQOptions.CofigName).Get<RabbitMQOptions>();
             builder.Services.AddMassTransit(config =>
@@ -61,13 +56,17 @@ namespace BestGuide.Report
                         h.Password(rabbitMqOptions.Password);
                     });
 
+                    cfg.UseMessageRetry(r =>
+                    {
+                        r.Interval(5, TimeSpan.FromMinutes(1));
+                    });
+
                     cfg.ConfigureEndpoints(context);
                 });
             });
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
