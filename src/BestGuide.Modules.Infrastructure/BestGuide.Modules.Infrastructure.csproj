@@ -4,6 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Configurations>Debug;Internal;Release</Configurations>
     <GenerateRuntimeConfigurationFiles>True</GenerateRuntimeConfigurationFiles>
   </PropertyGroup>
 
@@ -22,13 +23,17 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" >
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" />
+    <PackageReference Include="Microsoft.VisualStudio.SlowCheetah">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
   </ItemGroup>
 
@@ -38,9 +43,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="appsettings.Internal.json">
-      <DependentUpon>appsettings.json</DependentUpon>
+    <None Update="database.Debug.json">
+      <DependentUpon>database.json</DependentUpon>
       <IsTransformFile>true</IsTransformFile>
+    </None>
+    <None Update="database.Internal.json">
+      <DependentUpon>database.json</DependentUpon>
+      <IsTransformFile>true</IsTransformFile>
+    </None>
+    <None Update="database.Release.json">
+      <IsTransformFile>true</IsTransformFile>
+      <DependentUpon>database.json</DependentUpon>
     </None>
   </ItemGroup>
 

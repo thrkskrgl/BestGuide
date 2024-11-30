@@ -6,6 +6,9 @@ namespace BestGuide.Modules.Infrastructure.Persistence
 {
     public static class ServiceCollectionExtensions
     {
+        private const string SchemaName = "modules";
+        private const string MigrationHistoryName = "__EFMigrationsHistory";
+
         private static IConfiguration GetDatabaseConfiguration()
         {
             var configurationBuilder = new ConfigurationBuilder()
@@ -21,7 +24,7 @@ namespace BestGuide.Modules.Infrastructure.Persistence
             var connectionString = configuration.GetConnectionString("DBBestGuideConnection");
 
             services.AddDbContext<ModulesDbContext>(options =>
-                options.UseNpgsql(connectionString));
+                options.UseNpgsql(connectionString, x => x.MigrationsHistoryTable(MigrationHistoryName, SchemaName)));
 
             return services;
         }

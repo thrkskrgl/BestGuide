@@ -20,7 +20,7 @@ namespace BestGuide.Modules.Domain.Services
             try
             {
                 entity = args.New();
-                await _hotelRepository.AddAsync(entity, cancellationToken);
+                entity = await _hotelRepository.AddAsync(entity, cancellationToken);
                 return entity;
             }
             catch (Exception)

@@ -2,7 +2,6 @@
 using BestGuide.Modules.Application.Hotels.Queries;
 using BestGuide.Modules.Areas.Hotel.Models.Requests;
 using BestGuide.Modules.Areas.Hotel.Models.Responses;
-using BestGuide.Modules.Areas.HotelContact.Models.Responses;
 using BestGuide.Modules.Domain.Args.HotelArgs;
 
 namespace BestGuide.Modules.Areas.MappingProfiles
@@ -16,7 +15,6 @@ namespace BestGuide.Modules.Areas.MappingProfiles
             CreateMap<CreateHotelRequest, CreateHotelCommand>();
             CreateMap<ContactRequestOfHotel, ContactArgsOfHotel>();
             CreateMap<Domain.Models.Hotel, HotelResponse>();
-            CreateMap<Domain.Models.HotelContact, HotelContactResponse>();
         }
     }
 }

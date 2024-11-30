@@ -3,5 +3,6 @@
     public partial interface IRepositoryFactory : IDisposable
     {
         IHotelRepository GetHotelRepository();
+        IHotelContactRepository GetHotelContactRepository();
     }
 }
