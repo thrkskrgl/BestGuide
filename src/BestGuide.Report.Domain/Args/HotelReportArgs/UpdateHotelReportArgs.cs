@@ -11,9 +11,11 @@ namespace BestGuide.Report.Domain.Args.HotelReportArgs
 
         internal HotelReport Modify(HotelReport entity)
         {
-            entity.HotelCount = HotelCount;
-            entity.TelephoneCount = TelephoneCount;
             entity.Status = ReportStatus.Completed;
+            entity.TelephoneCount = TelephoneCount;
+            entity.ModifiedOn = DateTime.UtcNow;
+            entity.HotelCount = HotelCount;
+            entity.ModifiedBy = "system";
             return entity;
         }
     }

@@ -20,30 +20,39 @@ namespace BestGuide.Report.Domain.Services
 
         public async Task<Guid> CreateAsync(CreateHotelReportArgs args, CancellationToken cancellationToken = default)
         {
-            var entity = args.New();
-            entity = await _hotelReportRepository.AddAsync(entity, cancellationToken);
-
-            if (entity is null)
+            try
             {
-                throw new InvalidOperationException();
+                var entity = args.New();
+                await _hotelReportRepository.BeginTransactionAsync(cancellationToken);
+                entity = await _hotelReportRepository.AddAsync(entity, cancellationToken);
+
+                ArgumentNullException.ThrowIfNull(entity);
+
+                var message = new HotelReportCreated
+                {
+                    Id = entity.Id,
+                    Location = args.Location
+                };
+                await _mediator.Publish(message, cancellationToken);
+
+                await _hotelReportRepository.CommitTransactionAsync(cancellationToken);
+                return entity.Id;
             }
-
-            var message = new HotelReportCreated
+            catch (Exception)
             {
-                Id = entity.Id,
-                Location = args.Location
-            };
-            await _mediator.Publish(message, cancellationToken);
-
-            return entity.Id;
+                await _hotelReportRepository.RollbackTransactionAsync(cancellationToken);
+                throw;
+            }
         }
 
         public async Task UpdateAsync(UpdateHotelReportArgs args, CancellationToken cancellationToken = default)
         {
+            ArgumentNullException.ThrowIfNull(args);
             var entity = await _hotelReportRepository.GetAsync(new GetHotelReportByIdArgs { Id = args.Id }, cancellationToken);
-            ArgumentNullException.ThrowIfNull(entity, nameof(entity));
 
+            ArgumentNullException.ThrowIfNull(entity, nameof(entity));
             entity = args.Modify(entity);
+
             await _hotelReportRepository.UpdateAsync(entity, cancellationToken);
         }
 

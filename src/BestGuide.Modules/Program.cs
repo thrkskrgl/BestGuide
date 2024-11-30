@@ -1,5 +1,4 @@
 using BestGuide.Modules.Application.Consumers;
-using BestGuide.Modules.Domain.Persistence;
 using BestGuide.Modules.Domain.Services;
 using BestGuide.Modules.Infrastructure.Persistence;
 using BestGuide.Modules.Options;
@@ -17,7 +16,7 @@ namespace BestGuide.Modules
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDatabaseContext();
+            builder.Services.RegisterDatabaseContext();
 
             builder.Services.AddControllers()
                 .AddJsonOptions(options =>
@@ -41,13 +40,8 @@ namespace BestGuide.Modules
                 options.AllowNullCollections = true;
             }, Assembly.GetExecutingAssembly());
 
-            builder.Services.AddScoped<IRepositoryFactory, RepositoryFactory>();
-
-            builder.Services.AddScoped<IHotelService, HotelService>();
-            builder.Services.AddScoped<IHotelContactService, HotelContactService>();
-
-            builder.Services.AddScoped<IHotelRepository, HotelRepository>();
-            builder.Services.AddScoped<IHotelContactRepository, HotelContactRepository>();
+            builder.Services.RegisterModulesRepositories();
+            builder.Services.RegisterModulesServices();
 
             var rabbitMqOptions = builder.Configuration.GetSection(RabbitMQOptions.CofigName).Get<RabbitMQOptions>();
             builder.Services.AddMassTransit(config =>
@@ -62,13 +56,17 @@ namespace BestGuide.Modules
                         h.Password(rabbitMqOptions.Password);
                     });
 
+                    cfg.UseMessageRetry(r =>
+                    {
+                        r.Interval(5, TimeSpan.FromMinutes(1));
+                    });
+
                     cfg.ConfigureEndpoints(context);
                 });
             });
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();

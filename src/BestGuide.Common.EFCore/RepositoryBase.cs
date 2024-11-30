@@ -42,6 +42,7 @@ namespace BestGuide.Common.EFCore
         public async Task<IList<T>> ListAsync(
                                     Expression<Func<T, bool>> predicate,
                                     List<Expression<Func<T, object>>>? includes = null,
+                                    Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
                                     CancellationToken cancellationToken = default)
         {
             IQueryable<T> query = _dbSet.Where(predicate);
@@ -55,6 +56,11 @@ namespace BestGuide.Common.EFCore
                 }
             }
 
+            if (orderBy != null)
+            {
+                query = orderBy(query);
+            }
+
             return await query.ToListAsync(cancellationToken);
         }
 
@@ -63,6 +69,7 @@ namespace BestGuide.Common.EFCore
                                          int pageIndex,
                                          int pageSize,
                                          List<Expression<Func<T, object>>>? includes = null,
+                                         Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
                                          CancellationToken cancellationToken = default)
         {
             IQueryable<T> query = _dbSet.Where(predicate);
@@ -74,6 +81,11 @@ namespace BestGuide.Common.EFCore
                     query = query.Include(include)
                         .AsNoTracking();
                 }
+            }
+
+            if (orderBy != null)
+            {
+                query = orderBy(query);
             }
 
             var totalItems = await query.CountAsync(cancellationToken);
@@ -101,6 +113,30 @@ namespace BestGuide.Common.EFCore
         {
             _dbSet.Remove(entity);
             await _context.SaveChangesAsync(cancellationToken);
+        }
+
+        public async Task BeginTransactionAsync(CancellationToken cancellationToken = default)
+        {
+            if (_context.Database.CurrentTransaction == null)
+            {
+                await _context.Database.BeginTransactionAsync(cancellationToken);
+            }
+        }
+
+        public async Task CommitTransactionAsync(CancellationToken cancellationToken = default)
+        {
+            if (_context.Database.CurrentTransaction != null)
+            {
+                await _context.Database.CommitTransactionAsync(cancellationToken);
+            }
+        }
+
+        public async Task RollbackTransactionAsync(CancellationToken cancellationToken = default)
+        {
+            if (_context.Database.CurrentTransaction != null)
+            {
+                await _context.Database.RollbackTransactionAsync(cancellationToken);
+            }
         }
     }
 }
