@@ -19,6 +19,11 @@ namespace BestGuide.Modules.Infrastructure.Persistence
             return new HotelRepository(_dbContext);
         }
 
+        public IHotelContactRepository GetHotelContactRepository()
+        {
+            return new HotelContactRepository(_dbContext);
+        }
+
         public void Dispose()
         {
             Dispose(true);

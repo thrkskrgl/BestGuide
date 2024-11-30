@@ -16,9 +16,12 @@ namespace BestGuide.Modules.Domain.Models
 
         [Required]
         [MaxLength(500)]
-        public string? Content { get; set; }
+        public string Content { get; set; }
 
         [Required]
-        public virtual required Hotel Hotel { get; set; }
+        public Guid HotelId { get; set; }
+
+        [ForeignKey("HotelId")]
+        public virtual Hotel Hotel { get; set; }
     }
 }

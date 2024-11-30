@@ -2,8 +2,7 @@
 {
     public enum HotelContactType
     {
-        None = 0,
-        Telephone,
+        Telephone = 1,
         Email,
         Location
     }
