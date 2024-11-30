@@ -24,6 +24,6 @@ namespace BestGuide.Modules.Domain.Models
 
         public DateTime CreatedOn { get; set; }
 
-        public HashSet<HotelContact> Contacts { get; set; } = [];
+        public HashSet<HotelContact> Contacts { get; set; }
     }
 }
