@@ -9,6 +9,7 @@ namespace BestGuide.Common.EFCore
         Task<IList<T>> ListAsync(Expression<Func<T, bool>> predicate, List<Expression<Func<T, object>>>? includes = null, CancellationToken cancellationToken = default);
         Task<IListPaged<T>> ListPagedAsync(Expression<Func<T, bool>> predicate, int pageIndex, int pageSize, List<Expression<Func<T, object>>>? includes = null, CancellationToken cancellationToken = default);
         Task<T> AddAsync(T entity, CancellationToken cancellationToken = default);
+        Task<T> UpdateAsync(T entity, CancellationToken cancellationToken = default);
         Task DeleteAsync(T entity, CancellationToken cancellationToken = default);
     }
 }

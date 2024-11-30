@@ -8,10 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" />
+    <PackageReference Include="MassTransit" />
     <PackageReference Include="MediatR" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BestGuide.Common.Messages\BestGuide.Common.Messages.csproj" />
     <ProjectReference Include="..\BestGuide.Modules.Domain\BestGuide.Modules.Domain.csproj" />
   </ItemGroup>
 

@@ -1,6 +1,9 @@
+using BestGuide.Modules.Application.Consumers;
 using BestGuide.Modules.Domain.Persistence;
 using BestGuide.Modules.Domain.Services;
 using BestGuide.Modules.Infrastructure.Persistence;
+using BestGuide.Modules.Options;
+using MassTransit;
 using MediatR;
 using MediatR.Pipeline;
 using System.Reflection;
@@ -45,6 +48,23 @@ namespace BestGuide.Modules
 
             builder.Services.AddScoped<IHotelRepository, HotelRepository>();
             builder.Services.AddScoped<IHotelContactRepository, HotelContactRepository>();
+
+            var rabbitMqOptions = builder.Configuration.GetSection(RabbitMQOptions.CofigName).Get<RabbitMQOptions>();
+            builder.Services.AddMassTransit(config =>
+            {
+                config.AddConsumer<HotelReportCreateMessageConsumer>();
+
+                config.UsingRabbitMq((context, cfg) =>
+                {
+                    cfg.Host(rabbitMqOptions.Host, h =>
+                    {
+                        h.Username(rabbitMqOptions.UserName);
+                        h.Password(rabbitMqOptions.Password);
+                    });
+
+                    cfg.ConfigureEndpoints(context);
+                });
+            });
 
             var app = builder.Build();
 
