@@ -7,14 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" />
-    <PackageReference Include="MassTransit" />
     <PackageReference Include="MediatR" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BestGuide.Common.Messages\BestGuide.Common.Messages.csproj" />
-    <ProjectReference Include="..\BestGuide.Report.Domain\BestGuide.Report.Domain.csproj" />
+    <ProjectReference Include="..\..\BestGuide.Common.EFCore\src\BestGuide.Common.EFCore.csproj" />
+    <ProjectReference Include="..\..\BestGuide.Common.Pagination\src\BestGuide.Common.Pagination.csproj" />
   </ItemGroup>
 
 </Project>

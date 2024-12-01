@@ -4,8 +4,6 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Configurations>Debug;Internal;Release</Configurations>
-    <GenerateRuntimeConfigurationFiles>True</GenerateRuntimeConfigurationFiles>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,8 +36,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BestGuide.Common.EFCore\BestGuide.Common.EFCore.csproj" />
-    <ProjectReference Include="..\BestGuide.Modules.Domain\BestGuide.Modules.Domain.csproj" />
+    <ProjectReference Include="..\..\BestGuide.Common.EFCore\src\BestGuide.Common.EFCore.csproj" />
+    <ProjectReference Include="..\..\BestGuide.Report.Domain\src\BestGuide.Report.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,8 +50,8 @@
       <IsTransformFile>true</IsTransformFile>
     </None>
     <None Update="database.Release.json">
-      <IsTransformFile>true</IsTransformFile>
       <DependentUpon>database.json</DependentUpon>
+      <IsTransformFile>true</IsTransformFile>
     </None>
   </ItemGroup>
 

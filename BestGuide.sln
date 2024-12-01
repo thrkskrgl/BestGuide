@@ -19,27 +19,35 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{3D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{66F884A0-C344-44E9-9316-36F4A00DC7B7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Report", "src\BestGuide.Report\BestGuide.Report.csproj", "{B2785EBA-1EFF-4736-88B2-D0BB56F0E7FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Report", "src\BestGuide.Report\src\BestGuide.Report.csproj", "{B2785EBA-1EFF-4736-88B2-D0BB56F0E7FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Modules", "src\BestGuide.Modules\BestGuide.Modules.csproj", "{21A27F3B-1FDF-4281-BA18-0AE65555408C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Modules", "src\BestGuide.Modules\src\BestGuide.Modules.csproj", "{21A27F3B-1FDF-4281-BA18-0AE65555408C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Modules.Application", "src\BestGuide.Modules.Application\BestGuide.Modules.Application.csproj", "{1E6CF45A-C76D-4585-8E7D-C68ECDA3D92A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Modules.Application", "src\BestGuide.Modules.Application\src\BestGuide.Modules.Application.csproj", "{1E6CF45A-C76D-4585-8E7D-C68ECDA3D92A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Report.Application", "src\BestGuide.Report.Application\BestGuide.Report.Application.csproj", "{0121CF26-3004-4C2C-A429-8D155DAA37BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Report.Application", "src\BestGuide.Report.Application\src\BestGuide.Report.Application.csproj", "{0121CF26-3004-4C2C-A429-8D155DAA37BB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Report.Domain", "src\BestGuide.Report.Domain\BestGuide.Report.Domain.csproj", "{7FE3112D-95A9-4258-BC79-0FDA18E4293D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Report.Domain", "src\BestGuide.Report.Domain\src\BestGuide.Report.Domain.csproj", "{7FE3112D-95A9-4258-BC79-0FDA18E4293D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Report.Infrastructure", "src\BestGuide.Report.Infrastructure\BestGuide.Report.Infrastructure.csproj", "{FED8AE8C-9FC0-477C-ABE9-3432525CDA64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Report.Infrastructure", "src\BestGuide.Report.Infrastructure\src\BestGuide.Report.Infrastructure.csproj", "{FED8AE8C-9FC0-477C-ABE9-3432525CDA64}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Modules.Domain", "src\BestGuide.Modules.Domain\BestGuide.Modules.Domain.csproj", "{35128E5E-5B3A-497C-9AD2-FAF7447DBD8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Modules.Domain", "src\BestGuide.Modules.Domain\src\BestGuide.Modules.Domain.csproj", "{35128E5E-5B3A-497C-9AD2-FAF7447DBD8D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Modules.Infrastructure", "src\BestGuide.Modules.Infrastructure\BestGuide.Modules.Infrastructure.csproj", "{1020E92F-0E6F-4B8D-915A-3D17FAC4F42D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Modules.Infrastructure", "src\BestGuide.Modules.Infrastructure\src\BestGuide.Modules.Infrastructure.csproj", "{1020E92F-0E6F-4B8D-915A-3D17FAC4F42D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Common.Pagination", "src\BestGuide.Common.Pagination\BestGuide.Common.Pagination.csproj", "{EED874F3-672F-4C7B-A740-604CEE65938B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Common.Pagination", "src\BestGuide.Common.Pagination\src\BestGuide.Common.Pagination.csproj", "{EED874F3-672F-4C7B-A740-604CEE65938B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Common.EFCore", "src\BestGuide.Common.EFCore\BestGuide.Common.EFCore.csproj", "{5A54A0CD-15A7-4CB4-976F-FA7F6066D12A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Common.EFCore", "src\BestGuide.Common.EFCore\src\BestGuide.Common.EFCore.csproj", "{5A54A0CD-15A7-4CB4-976F-FA7F6066D12A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Common.Messages", "src\BestGuide.Common.Messages\BestGuide.Common.Messages.csproj", "{2C5A7AD0-E596-4D99-B1A2-17AC2DA85DA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Common.Messages", "src\BestGuide.Common.Messages\src\BestGuide.Common.Messages.csproj", "{2C5A7AD0-E596-4D99-B1A2-17AC2DA85DA4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Modules.UnitTest", "src\BestGuide.Modules\tests\BestGuide.Modules.UnitTest.csproj", "{9535C8C4-9A98-44F2-9929-1758BF000A9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestGuide.Modules.Application.UnitTest", "src\BestGuide.Modules.Application\tests\BestGuide.Modules.Application.UnitTest.csproj", "{8FF6D5F9-B23D-45CE-A624-E2F6C09ADCBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestGuide.Modules.Domain.UnitTest", "src\BestGuide.Modules.Domain\tests\BestGuide.Modules.Domain.UnitTest.csproj", "{E2DE0228-D8D5-43E9-93C1-265524F5B1A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestGuide.Modules.Infrastructure.UnitTest", "src\BestGuide.Modules.Infrastructure\tests\BestGuide.Modules.Infrastructure.UnitTest.csproj", "{9B7C7270-CA5C-45F7-A52C-7D2DEF135F89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +99,22 @@ Global
 		{2C5A7AD0-E596-4D99-B1A2-17AC2DA85DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C5A7AD0-E596-4D99-B1A2-17AC2DA85DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C5A7AD0-E596-4D99-B1A2-17AC2DA85DA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9535C8C4-9A98-44F2-9929-1758BF000A9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9535C8C4-9A98-44F2-9929-1758BF000A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9535C8C4-9A98-44F2-9929-1758BF000A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9535C8C4-9A98-44F2-9929-1758BF000A9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FF6D5F9-B23D-45CE-A624-E2F6C09ADCBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FF6D5F9-B23D-45CE-A624-E2F6C09ADCBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FF6D5F9-B23D-45CE-A624-E2F6C09ADCBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FF6D5F9-B23D-45CE-A624-E2F6C09ADCBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2DE0228-D8D5-43E9-93C1-265524F5B1A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2DE0228-D8D5-43E9-93C1-265524F5B1A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2DE0228-D8D5-43E9-93C1-265524F5B1A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2DE0228-D8D5-43E9-93C1-265524F5B1A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B7C7270-CA5C-45F7-A52C-7D2DEF135F89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B7C7270-CA5C-45F7-A52C-7D2DEF135F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B7C7270-CA5C-45F7-A52C-7D2DEF135F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B7C7270-CA5C-45F7-A52C-7D2DEF135F89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -113,6 +137,10 @@ Global
 		{EED874F3-672F-4C7B-A740-604CEE65938B} = {45BC595E-A7FF-4798-B497-2E410FA53E00}
 		{5A54A0CD-15A7-4CB4-976F-FA7F6066D12A} = {45BC595E-A7FF-4798-B497-2E410FA53E00}
 		{2C5A7AD0-E596-4D99-B1A2-17AC2DA85DA4} = {45BC595E-A7FF-4798-B497-2E410FA53E00}
+		{9535C8C4-9A98-44F2-9929-1758BF000A9F} = {E6389850-05CE-48E9-919A-CC68BF40F674}
+		{8FF6D5F9-B23D-45CE-A624-E2F6C09ADCBB} = {87D7AB9D-D8B2-45DA-8BB4-978441E57509}
+		{E2DE0228-D8D5-43E9-93C1-265524F5B1A3} = {87D7AB9D-D8B2-45DA-8BB4-978441E57509}
+		{9B7C7270-CA5C-45F7-A52C-7D2DEF135F89} = {87D7AB9D-D8B2-45DA-8BB4-978441E57509}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {39FC4BE9-91F9-41B5-946D-46AFAB30BA61}

@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BestGuide.Common.Messages\BestGuide.Common.Messages.csproj" />
-    <ProjectReference Include="..\BestGuide.Modules.Domain\BestGuide.Modules.Domain.csproj" />
+    <ProjectReference Include="..\..\BestGuide.Common.Messages\src\BestGuide.Common.Messages.csproj" />
+    <ProjectReference Include="..\..\BestGuide.Modules.Domain\src\BestGuide.Modules.Domain.csproj" />
   </ItemGroup>
 
 </Project>
