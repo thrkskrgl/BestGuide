@@ -12,6 +12,7 @@ namespace BestGuide.Report.Areas.MappingProfiles
             CreateMap<SearchPagedHotelReportsRequest, PagedSearchHotelReportsQuery>();
             CreateMap<CreateHotelReportRequest, CreateHotelReportCommand>();
             CreateMap<Domain.Models.HotelReport, HotelReportResponse>();
+            CreateMap<Domain.Models.HotelReport, HotelReportDetailResponse>();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace BestGuide.Modules.Areas.Hotel
         private readonly IMapper _mapper;
 
         /// <summary>
-        /// Hotel Controller
+        /// Hotel Controller Ctor
         /// </summary>
         /// <param name="mediator"></param>
         /// <param name="mapper"></param>
@@ -36,6 +36,7 @@ namespace BestGuide.Modules.Areas.Hotel
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(HotelResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetHotel([FromRoute] Guid id, CancellationToken cancellationToken)
         {
@@ -59,6 +60,7 @@ namespace BestGuide.Modules.Areas.Hotel
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [HttpGet("hotels")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(HotelResponse[]), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetHotels([FromQuery] SearchHotelsRequest request, CancellationToken cancellationToken)
         {
@@ -82,6 +84,7 @@ namespace BestGuide.Modules.Areas.Hotel
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [HttpGet("paged-hotels")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(HotelResponse[]), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetPagedHotels([FromQuery] SearchPagedHotelsRequest request, CancellationToken cancellationToken)
         {
@@ -107,6 +110,7 @@ namespace BestGuide.Modules.Areas.Hotel
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [HttpPost("create")]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(typeof(HotelResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> CreateHotel([FromBody] CreateHotelRequest request, CancellationToken cancellationToken)
         {
@@ -130,6 +134,7 @@ namespace BestGuide.Modules.Areas.Hotel
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> DeleteHotel([FromRoute] Guid id, CancellationToken cancellationToken)
         {

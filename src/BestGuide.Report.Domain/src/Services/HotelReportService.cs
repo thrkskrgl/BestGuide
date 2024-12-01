@@ -18,6 +18,12 @@ namespace BestGuide.Report.Domain.Services
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// Create InProgress Report and Throw an HotelReportCreated Event
+        /// </summary>
+        /// <param name="args"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public async Task<Guid> CreateAsync(CreateHotelReportArgs args, CancellationToken cancellationToken = default)
         {
             try
@@ -45,6 +51,12 @@ namespace BestGuide.Report.Domain.Services
             }
         }
 
+        /// <summary>
+        /// To update the report content with a update message 
+        /// </summary>
+        /// <param name="args"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public async Task UpdateAsync(UpdateHotelReportArgs args, CancellationToken cancellationToken = default)
         {
             ArgumentNullException.ThrowIfNull(args);
