@@ -39,7 +39,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Common.Pagination
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Common.EFCore", "src\BestGuide.Common.EFCore\BestGuide.Common.EFCore.csproj", "{5A54A0CD-15A7-4CB4-976F-FA7F6066D12A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestGuide.Common.Messages", "src\BestGuide.Common.Messages\BestGuide.Common.Messages.csproj", "{2C5A7AD0-E596-4D99-B1A2-17AC2DA85DA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestGuide.Common.Messages", "src\BestGuide.Common.Messages\BestGuide.Common.Messages.csproj", "{2C5A7AD0-E596-4D99-B1A2-17AC2DA85DA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
