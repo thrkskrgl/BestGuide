@@ -6,7 +6,7 @@ namespace BestGuide.Modules.Domain.Args.HotelArgs
     public class ContactArgsOfHotel
     {
         public HotelContactType Type { get; set; }
-        public string? Content { get; set; }
+        public required string Content { get; set; }
 
         internal HotelContact New(Hotel parent)
         {
