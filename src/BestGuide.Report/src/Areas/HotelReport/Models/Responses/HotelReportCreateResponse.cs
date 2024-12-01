@@ -1,13 +1,13 @@
 ﻿namespace BestGuide.Report.Areas.HotelReport.Models.Requests
 {
     /// <summary>
-    /// CreateHotelReportRequest
+    /// HotelReportCreateResponse
     /// </summary>
-    public class CreateHotelReportRequest
+    public class HotelReportCreateResponse
     {
         /// <summary>
-        /// Location Input For Report
+        /// Report Id
         /// </summary>
-        public string Location { get; set; }
+        public virtual Guid Id { get; set; }
     }
 }

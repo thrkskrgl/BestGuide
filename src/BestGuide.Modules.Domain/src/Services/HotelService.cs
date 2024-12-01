@@ -20,6 +20,7 @@ namespace BestGuide.Modules.Domain.Services
 
         public async Task<Hotel> CreateAsync(CreateHotelArgs args, CancellationToken cancellationToken = default)
         {
+            ArgumentNullException.ThrowIfNull(args);
             var entity = args.New();
             entity = await _hotelRepository.AddAsync(entity, cancellationToken);
             return entity;
