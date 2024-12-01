@@ -22,6 +22,11 @@ namespace BestGuide.Modules.Infrastructure.Persistence
             return Expression.Lambda<Func<T, object>>(converted, parameter);
         }
 
+        /// <summary>
+        /// creates prediacte includes and orderBy depending on the argument, to be used in the query
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
         private static (Expression<Func<Hotel, bool>>, List<Expression<Func<Hotel, object>>>?, Func<IQueryable<Hotel>, IOrderedQueryable<Hotel>>?) BuildPredicate(SearchHotelArgs args)
         {
             Expression<Func<Hotel, bool>> predicate = h =>
