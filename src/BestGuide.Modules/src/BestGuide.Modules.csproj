@@ -63,8 +63,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BestGuide.Modules.Application\BestGuide.Modules.Application.csproj" />
-    <ProjectReference Include="..\BestGuide.Modules.Infrastructure\BestGuide.Modules.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\BestGuide.Modules.Application\src\BestGuide.Modules.Application.csproj" />
+    <ProjectReference Include="..\..\BestGuide.Modules.Infrastructure\src\BestGuide.Modules.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

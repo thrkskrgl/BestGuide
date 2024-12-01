@@ -63,8 +63,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BestGuide.Report.Application\BestGuide.Report.Application.csproj" />
-    <ProjectReference Include="..\BestGuide.Report.Infrastructure\BestGuide.Report.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\BestGuide.Report.Application\src\BestGuide.Report.Application.csproj" />
+    <ProjectReference Include="..\..\BestGuide.Report.Infrastructure\src\BestGuide.Report.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
