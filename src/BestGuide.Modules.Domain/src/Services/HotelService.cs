@@ -74,6 +74,7 @@ namespace BestGuide.Modules.Domain.Services
                 HotelCount = list.Count,
                 TelephoneCount = list.Sum(h => h.Contacts?.Count(c => c.Type == Enums.HotelContactType.Telephone) ?? 0)
             };
+
             await _mediator.Publish(message, cancellationToken);
         }
     }

@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BestGuide.Modules.Areas.Hotel
 {
+    /// <summary>
+    /// Hotel Controller
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class HotelController : ControllerRoot
@@ -15,12 +18,23 @@ namespace BestGuide.Modules.Areas.Hotel
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
 
+        /// <summary>
+        /// Hotel Controller
+        /// </summary>
+        /// <param name="mediator"></param>
+        /// <param name="mapper"></param>
         public HotelController(IMediator mediator, IMapper mapper)
         {
             _mediator = mediator;
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Get Hotel Method
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(HotelResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetHotel([FromRoute] Guid id, CancellationToken cancellationToken)
@@ -38,6 +52,12 @@ namespace BestGuide.Modules.Areas.Hotel
             return Ok(response);
         }
 
+        /// <summary>
+        /// Get Hotels Method
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         [HttpGet("hotels")]
         [ProducesResponseType(typeof(HotelResponse[]), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetHotels([FromQuery] SearchHotelsRequest request, CancellationToken cancellationToken)
@@ -55,6 +75,12 @@ namespace BestGuide.Modules.Areas.Hotel
             return Ok(response);
         }
 
+        /// <summary>
+        /// Get Paged Hotels Method
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         [HttpGet("paged-hotels")]
         [ProducesResponseType(typeof(HotelResponse[]), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetPagedHotels([FromQuery] SearchPagedHotelsRequest request, CancellationToken cancellationToken)
@@ -74,6 +100,12 @@ namespace BestGuide.Modules.Areas.Hotel
             return Ok(response);
         }
 
+        /// <summary>
+        /// Create Hotel Method
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         [HttpPost("create")]
         [ProducesResponseType(typeof(HotelResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> CreateHotel([FromBody] CreateHotelRequest request, CancellationToken cancellationToken)
@@ -91,6 +123,12 @@ namespace BestGuide.Modules.Areas.Hotel
             return Ok(response);
         }
 
+        /// <summary>
+        /// Hard Delete Hotel Method
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> DeleteHotel([FromRoute] Guid id, CancellationToken cancellationToken)
